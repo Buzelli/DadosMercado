@@ -50,8 +50,6 @@ public class Funcao {
 		sc1.close();
 		sc2.close();
 		
-		
-		
 		Set<String> nomes_subprod = new HashSet<String>();
 		for (Operacao ops : listaOperacoes) {
 			nomes_subprod.add(ops.getNm_SubProduto());	
@@ -61,17 +59,13 @@ public class Funcao {
 		List<String> resultados = new ArrayList<String>();
 		
 		for (String string : nomes_subprod) {
-			nova = listaOperacoes;
-			nova = removeDuplicados(nova, string);
+			
+			nova = removeDuplicados(listaOperacoes, string);
 			resultados.add("\""+string+"\""+";"+"\""+calcula_Lista(nova, listaMercado, string)+"\"");	
 			
 		}
 		
-		escreveCSV(resultados);
-		
-		//Print(listaMercado);
-		//PrintOperacao(listaOperacoes);
-		
+		escreveCSV(resultados);		
 	}
 	
 	
@@ -130,10 +124,8 @@ public class Funcao {
 			}
 			
 			writer.flush();
-	        writer.close();
-		
+	        writer.close();	
 	}
-
 		
 }
 	
